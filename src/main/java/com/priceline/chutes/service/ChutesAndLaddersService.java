@@ -7,6 +7,7 @@ import com.priceline.chutes.models.Player;
 import java.util.List;
 import java.util.Random;
 
+@Component
 public class ChutesAndLaddersService {
 
     private final Random diceRoller;
@@ -16,9 +17,10 @@ public class ChutesAndLaddersService {
     private static final int MAX_ROLL = 6;
     private static final int PLUS_ONE = 1;
 
-    public ChutesAndLaddersService() {
-        this.diceRoller = new Random();
-        this.board = new Board();
+    public ChutesAndLaddersService(final Random diceRoller,
+                                   final Board board) {
+        this.diceRoller = diceRoller;
+        this.board = board;
     }
 
     public Player playGame(final List<Player> players) {
